@@ -11,11 +11,11 @@ function setup() {
   }
 
     function mousePressed() {
-        if (soundTrack.isPlaying()) {
-          soundTrack.pause();
-          soundPlaying = false;
+        if (mySound.isPlaying()) {
+          mySound.pause();
+          mySound = false;
         } else {
-          soundTrack.play();
-          soundPlaying = true;
+          mySound.play();
+          mySound = true;
         }
       }
