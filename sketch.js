@@ -2,7 +2,7 @@
 var mySound;
 
 function preload() {
-	mySound = loadSound("https://www.mboxdrive.com/5.mp3");
+	mySound = loadSound("https://raw.githubusercontent.com/Ionsolo/sonambulo_audios/master/file.mp3");
 }
 
 function setup() {
