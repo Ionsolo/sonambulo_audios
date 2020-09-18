@@ -152,12 +152,12 @@ function setup() {
 }
 
 function draw() {
-  //background(127);
+  background(127);
   walker.render();
   //variables de dibujo
   let lo = width /sqrt(64);
   let li = height/sqrt(64);
-  point(width/8,height/8)
+  //point(width/8,height/8)
  
   //dibuja las lineas
   for (let i = 1; i<8; i++) {
@@ -227,6 +227,7 @@ function Particle(){
   this.updatePrev = function(){
     this.prevPos.x = this.pos.x;
     this.prevPos.y = this.pos.y;
+
   }
 
   this.edges = function(){
@@ -266,13 +267,13 @@ class Walker {
     this.yprev = this.y;
     var choice = floor(random(8));
     if (choice === 0) {
-      this.x = this.x +width/8;
+      this.x = this.x +width/8*floor(random(4));
     } else if (choice == 1) {
-      this.x = this.x -width/8;
+      this.x = this.x -width/8*floor(random(4));
     } else if (choice == 2) {
-      this.y = this.y +height/8;
+      this.y = this.y +height/8*floor(random(4));
     } else if (choice == 4) {
-      this.y = this.y -height/8;
+      this.y = this.y -height/8*floor(random(4));
     } else if (choice == 5) {
       this.x = this.x + width/8;
       this.y = this.y + height/8
@@ -286,9 +287,11 @@ class Walker {
       this.x = this.x - width/8;
       this.y = this.y - height/8
     }
+    
+    if (this.x > width ) {this.x = width/8/2 } else if (this.x < 0) { this.x = width/8*7+width/8/2 } else if (this.y > height) {this.y = height/8/2} else if (this.y < 0) {this.y = height/8*7+height/8/2}
     if(this.xprev == this.x && this.yprev == this.y) {this.step()}
-    this.x = constrain(this.x,width/8/2,width/8*7+width/8/2);
-    this.y = constrain(this.y,height/8/2,height/8*7+height/8/2);
+    //this.x = constrain(this.x,width/8/2,width/8*7+width/8/2);
+    //this.y = constrain(this.y,height/8/2,height/8*7+height/8/2);
   }
   
   reproducir() {
